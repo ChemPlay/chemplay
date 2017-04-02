@@ -15,30 +15,19 @@ class Chemplay(ShowBase):
         self.scene.setScale(0.25, 0.25, 0.25)
         self.scene.setPos(-8, 42, 0)
         #Uncomment once this function is finished.
-
         self.accept('time-a',self.CallspinCB)
 
     def CallspinCB(self,when):
         print "repeat a"
-        x = 1;
-        taskMgr.add(self.spinCB,"spin")
+        taskMgr.add(self.spinCB, "spin")
 
 
     def spinCB(self,task):
-        #if self.printRepeat(when=)
-
         angleDegrees = task.time * 6.0
         angleRadians = angleDegrees * (pi / 180.0)
-        #self.scene.setPos(20 * sin(angleDegrees), -20 * cos(angleRadians), 3)
-        self.camera.setHpr(angleDegrees, 0, 0)
+        self.scene.setHpr(angleDegrees, 0, 0)
         return Task.cont
-           #.setHpr determines how many degrees you will rotate the "scene", the object. Units are degrees
-        #for x in range(1,10,1):
-         #   self.scene.setHpr(x*36,0,0)
-          #  #time.sleep(2)
-           # print x
-            #event.wait(3)
-        #return Task.cont
+
 
 
 app = Chemplay()
